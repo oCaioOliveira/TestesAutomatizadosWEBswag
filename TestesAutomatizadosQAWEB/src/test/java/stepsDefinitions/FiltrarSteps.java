@@ -1,6 +1,5 @@
 package stepsDefinitions;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utils.Utils.Na;
 import static utils.Utils.driver;
@@ -25,8 +24,8 @@ public class FiltrarSteps {
 
 	@Entao("o sistema exibe a pagina de produtos filtrando por preco, do mais baixo para o mais alto")
 	public void oSistemaExibeAPaginaDeProdutosFiltrandoPorPrecoDoMaisBaixoParaOMaisAlto() {
-		assertTrue(Double.parseDouble(driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div/div/div[text()='7.99']")).getText()) 
-				< Double.parseDouble(driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[6]/div/div/div[text()='49.99']")).getText()));
+		assertTrue(Double.parseDouble(driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]/div/div/div[text()='7.99']")).getText().substring(1)) 
+				< Double.parseDouble(driver.findElement(By.xpath("/html/body/div/div/div/div[2]/div/div/div/div[6]/div/div/div[text()='49.99']")).getText().substring(1)));
 	}
 	
 }

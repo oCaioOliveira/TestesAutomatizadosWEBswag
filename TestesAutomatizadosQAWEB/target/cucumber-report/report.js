@@ -1,24 +1,24 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/FiltrarPrecos.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("file:src/test/resources/features/CancelarAntesFinalizar.feature");
 formatter.feature({
-  "name": "Realizar o filtro de produtos por preco",
+  "name": "Cancelar a compra antes de finalizar",
   "description": "",
   "keyword": "Funcionalidade",
   "tags": [
     {
-      "name": "@filtrarPrecos"
+      "name": "@cancelarAntesFinalizarCheckout"
     }
   ]
 });
 formatter.scenario({
-  "name": "realizar o filtro de produtos por preco, do mais baixo para o mais alto",
+  "name": "cancelar a compra antes de finalizar na pagina de checkout your information",
   "description": "",
   "keyword": "Cenario",
   "tags": [
     {
-      "name": "@filtrarPrecos"
+      "name": "@cancelarAntesFinalizarCheckout"
     },
     {
-      "name": "@filtrarPrecoMenorParaMaior"
+      "name": "@cancelarAntesFinalizarYourInformation"
     }
   ]
 });
@@ -26,35 +26,63 @@ formatter.before({
   "status": "passed"
 });
 formatter.step({
-  "name": "eu clicar no botao de opcoes de filtro",
+  "name": "eu clicar no botao cancelar",
   "keyword": "Quando "
 });
 formatter.match({
-  "location": "FiltrarSteps.euClicarNoBotaoDeOpcoesDeFiltro()"
+  "location": "CanelarAntesFinalizar.euClicarNoBotaoCancelar()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "clicar no botao que representa a opcao de filtro do preco mais baixo para o mais alto",
-  "keyword": "E "
-});
-formatter.match({
-  "location": "FiltrarSteps.clicarNoBotaoQueRepresentaAOpcaoDeFiltroDoPrecoMaisBaixoParaOMaisAlto()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "o sistema exibe a pagina de produtos filtrando por preco, do mais baixo para o mais alto",
+  "name": "o sistema deve me retornar para a pagina do meu carrinho",
   "keyword": "Entao "
 });
 formatter.match({
-  "location": "FiltrarSteps.oSistemaExibeAPaginaDeProdutosFiltrandoPorPrecoDoMaisBaixoParaOMaisAlto()"
+  "location": "CanelarAntesFinalizar.oSistemaDeveMeRetornarParaAPaginaDoMeuCarrinho()"
 });
 formatter.result({
-  "error_message": "java.lang.NumberFormatException: For input string: \"$7.99\"\r\n\tat sun.misc.FloatingDecimal.readJavaFormatString(Unknown Source)\r\n\tat sun.misc.FloatingDecimal.parseDouble(Unknown Source)\r\n\tat java.lang.Double.parseDouble(Unknown Source)\r\n\tat stepsDefinitions.FiltrarSteps.oSistemaExibeAPaginaDeProdutosFiltrandoPorPrecoDoMaisBaixoParaOMaisAlto(FiltrarSteps.java:28)\r\n\tat ✽.o sistema exibe a pagina de produtos filtrando por preco, do mais baixo para o mais alto(file:src/test/resources/features/FiltrarPrecos.feature:11)\r\n",
-  "status": "failed"
+  "status": "passed"
+});
+formatter.after({
+  "status": "passed"
+});
+formatter.scenario({
+  "name": "cancelar a compra antes de finalizar na pagina de checkout overview",
+  "description": "",
+  "keyword": "Cenario",
+  "tags": [
+    {
+      "name": "@cancelarAntesFinalizarCheckout"
+    },
+    {
+      "name": "@cancelarAntesFinalizarOverview"
+    }
+  ]
+});
+formatter.before({
+  "status": "passed"
+});
+formatter.step({
+  "name": "eu clicar no botao cancelar",
+  "keyword": "Quando "
+});
+formatter.match({
+  "location": "CanelarAntesFinalizar.euClicarNoBotaoCancelar()"
+});
+formatter.result({
+  "status": "passed"
+});
+formatter.step({
+  "name": "o sistema deve me retornar para a pagina inicial onde encontramos os produtos",
+  "keyword": "Entao "
+});
+formatter.match({
+  "location": "CanelarAntesFinalizar.oSistemaDeveMeRetornarParaAPaginaInicialOndeEncontramosOsProdutos()"
+});
+formatter.result({
+  "status": "passed"
 });
 formatter.after({
   "status": "passed"
