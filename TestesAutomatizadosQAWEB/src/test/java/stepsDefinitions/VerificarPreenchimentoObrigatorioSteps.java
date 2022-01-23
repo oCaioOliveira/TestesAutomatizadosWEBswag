@@ -38,13 +38,13 @@ public class VerificarPreenchimentoObrigatorioSteps {
 				.findElement(By.xpath("//div/h3[text()='Error: Postal Code is required']")).getText()));
 	}
 
-	@Entao("Entao o sistema deve mostrar uma mensagem de erro pedindo o campo first name")
+	@Entao("o sistema deve mostrar uma mensagem de erro pedindo o campo first name")
 	public void oSistemaDeveMostrarUmaMensagemDeErroPedindoOCampoFirstName() {
 		assertEquals("Error: First Name is required", (driver
 				.findElement(By.xpath("//div/h3[text()='Error: First Name is required']")).getText()));
 	}
 
-	@Entao("Entao o sistema deve mostrar uma mensagem de erro pedindo o campo last name")
+	@Entao("o sistema deve mostrar uma mensagem de erro pedindo o campo last name")
 	public void oSistemaDeveMostrarUmaMensagemDeErroPedindoOCampoLastName() {
 		assertEquals("Error: Last Name is required", (driver
 				.findElement(By.xpath("//div/h3[text()='Error: Last Name is required']")).getText()));

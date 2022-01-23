@@ -1,6 +1,7 @@
 package stepsDefinitions;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static utils.Utils.Na;
 import static utils.Utils.driver;
 
@@ -14,12 +15,12 @@ import pageObjects.TelaInicialPage;
 public class RemoverItemCarrinhoSteps {
 
 	@Quando("eu clicar no botao add to cart")
-	public void euClicarNoBotaoAddToCart() {
+	public void euClicarNoBotaoAddToCart() throws InterruptedException {
 		Na(TelaInicialPage.class).acionarBotaoAddToCart();
 	}
 
 	@Quando("clicar no botao remove")
-	public void clicarNoBotaoRemove() {
+	public void clicarNoBotaoRemove() throws InterruptedException {
 		Na(TelaInicialPage.class).acionarBotaoRemove();
 	}
 
@@ -37,5 +38,6 @@ public class RemoverItemCarrinhoSteps {
 	public void oSistemaDeveRetirarOItemDoMeuCarrinhoNaPaginaDoCarrinho() {
 		Na(TelaCarrinhoPage.class).acionarBotaoContinueShopping();
 		assertEquals("ADD TO CART", (driver.findElement(By.name("add-to-cart-sauce-labs-backpack")).getText()));
+//		assertTrue(driver.findElement(By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]")).isDisplayed());
 	}
 }

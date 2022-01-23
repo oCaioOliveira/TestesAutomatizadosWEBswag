@@ -2,6 +2,7 @@ package stepsDefinitions;
 
 import static utils.Utils.*;
 
+import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import pageObjects.LoginPage;
@@ -12,14 +13,20 @@ import pageObjects.TelaCheckoutPage;
 
 public class Hooks {
 
-	@Before(value = "@filtrarPrecos and @removerItens")
-	public void SetUp() {
+	@Before(value = "@removerItens")
+	public void FuncionalidadeLogin() {
+		acessarSistema();
+		Na(LoginPage.class).realizarLogin("standard_user", "secret_sauce");
+	}
+	
+	@Before(value = "@filtrarPrecos")
+	public void FuncionalidadeLogin2() {
 		acessarSistema();
 		Na(LoginPage.class).realizarLogin("standard_user", "secret_sauce");
 	}
 	
 	@Before(value = "@verificarPreenchimentoObrigatorio")
-	public void funcionalidadeAdicionarItensCarrinho() {
+	public void funcionalidadeAdicionarItensCarrinho() throws InterruptedException {
 		acessarSistema();
 		Na(LoginPage.class).realizarLogin("standard_user", "secret_sauce");
 		Na(TelaInicialPage.class).adicionarProdutoCarrinhoIrCarrinho();
@@ -27,7 +34,7 @@ public class Hooks {
 	}
 	
 	@Before(value = "@cancelarAntesFinalizarYourInformation")
-	public void funcionalidadeCancelarAntesFinalizarInformation() {
+	public void funcionalidadeCancelarAntesFinalizarInformation() throws InterruptedException {
 		acessarSistema();
 		Na(LoginPage.class).realizarLogin("standard_user", "secret_sauce");
 		Na(TelaInicialPage.class).adicionarProdutoCarrinhoIrCarrinho();
@@ -35,7 +42,7 @@ public class Hooks {
 	}
 	
 	@Before(value = "@cancelarAntesFinalizarOverview")
-	public void funcionalidadeCancelarAntesFinalizarOverview() {
+	public void funcionalidadeCancelarAntesFinalizarOverview() throws InterruptedException {
 		acessarSistema();
 		Na(LoginPage.class).realizarLogin("standard_user", "secret_sauce");
 		Na(TelaInicialPage.class).adicionarProdutoCarrinhoIrCarrinho();
@@ -49,7 +56,8 @@ public class Hooks {
 	}
 	
 	@After()
-	public void tearDown() throws Exception {
+	public void tearDown(Scenario scenario) throws Exception {
+		capturarTela(scenario);
 		driver.quit();
 	}
 	

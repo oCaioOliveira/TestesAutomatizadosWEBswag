@@ -14,8 +14,9 @@ public class TelaCarrinhoPage {
 	@FindBy(name = "checkout")
 	private WebElement botaoCheckout;
 
-	public void acionarBotaoRemove() {
+	public void acionarBotaoRemove() throws InterruptedException {
 		botaoRemove.click();
+		Thread.sleep(1000);
 	}
 
 	public void acionarBotaoContinueShopping() {

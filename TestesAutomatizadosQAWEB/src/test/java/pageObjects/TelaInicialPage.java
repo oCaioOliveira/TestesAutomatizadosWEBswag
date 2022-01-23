@@ -28,20 +28,23 @@ public class TelaInicialPage {
 		botaoLowToHigh.click();
 	}
 
-	public void acionarBotaoAddToCart() {
+	public void acionarBotaoAddToCart() throws InterruptedException {
 		botaoAddToCart.click();
+		Thread.sleep(1000);
 	}
 
 	public void acionarBotaoCarrinho() {
 		botaoCarrinho.click();
 	}
 
-	public void acionarBotaoRemove() {
+	public void acionarBotaoRemove() throws InterruptedException {
 		botaoRemove.click();
+		Thread.sleep(1000);
 	}
 
-	public void adicionarProdutoCarrinhoIrCarrinho() {
+	public void adicionarProdutoCarrinhoIrCarrinho() throws InterruptedException {
 		acionarBotaoAddToCart();
+		Thread.sleep(1000);
 		acionarBotaoCarrinho();
 	}
 }
